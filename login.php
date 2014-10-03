@@ -1,6 +1,6 @@
-  <?php		
+<?php
      $user_name = $_POST["user_name"];
-     $password = /*sha1*/($_POST["password"]); 
+     $password = /*sha1*/($_POST["password"]);
      // 连接到 mysql
      $cons = mysqli_connect("localhost", "root", "", "shd101wyy");
      // check connect error
@@ -24,14 +24,24 @@
 	 exit;
      }
      if(mysqli_num_rows($check_user_existed_result) > 0){
-        echo "User already existed";
+        $result = mysqli_fetch_array($check_user_existed_result, MYSQLI_ASSOC);
+	if ($result["user_name"] == $user_name){
+	   echo "User name match\n";
+	}
+	if ($result["password"] == $password){
+	   echo "User name and password match\n";   
+	}
+	else{
+	   echo "User name and password doesn't match\n";
+	   echo $password;
+	   echo $result["password"];
+	}
 	exit;
      }    
+     else{
+	echo "Used doesn't exist";
+	exit;
+     }
      
-     // save user_name and password to MySql
-     $insert_value = "INSERT INTO User VALUES ('$user_name', '$password')";
-     
-     mysqli_query($cons, $insert_value);
-     mysqli_close($cons);
-     echo "signup_success";		
-    ?>
+
+?>

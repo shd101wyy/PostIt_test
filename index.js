@@ -72,7 +72,7 @@ $(document).ready(function(){
 	
 	// 存到服务器
 	// http://192.168.2.4/xampp/PostIt_test
-	$.ajax({url: "./signup.php", // 这个以后得改
+	$.ajax({url: "./signup.php", 
 		async: false,
 		type: "POST",
 		data: {  user_name: user_name,
@@ -81,6 +81,31 @@ $(document).ready(function(){
 	       })
 	    .done(function(data){
                 console.log("Signup !");
+		alert("Data: " +  data);
+            })
+	    .fail(function(data){
+		alert("ERROR");
+		alert(data);
+		console.log(data);
+	    });
+	
+    })
+    // 用户登录
+    $("#user_login").click(function(){
+	var user_name = $("#login_username").val();
+	var user_password = document.getElementById("login_password").value;
+	
+	// 存到服务器
+	// http://192.168.2.4/xampp/PostIt_test
+	$.ajax({url: "./login.php", 
+		async: false,
+		type: "POST",
+		data: {  user_name: user_name,
+			 password: user_password
+		      }
+	       })
+	    .done(function(data){
+                console.log("Login !");
 		alert("Data: " +  data);
             })
 	    .fail(function(data){
