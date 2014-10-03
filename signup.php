@@ -1,6 +1,6 @@
   <?php		
      $user_name = $_POST["user_name"];
-     $password = $_POST["password"]; // 用 SHA 加密
+     $password = sha1($_POST["password"]); // 用 SHA 加密
       
      // 连接到 mysql
      $cons = mysqli_connect("localhost", "root", "", "shd101wyy");
