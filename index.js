@@ -1,13 +1,18 @@
 var information = ["Hello There", "I love you"];
 var current_offset = information.length - 1;
 $(document).ready(function(){
+    document.ontouchmove = function(e) {
+        e.preventDefault();
+    }
     
+    $("div").bind('dragstart', function(event) {event.preventDefault(); });
+       
     $("#my_card").append("<p class='post_text_content'>" + information[current_offset] +"</p>");
     
     $("#pageone").on("swipeleft", function(){
         console.log("Swipe Left");
         if(current_offset != information.length){
-            $("#my_card").hide("slide", {direction:"left"}, 300, function(){
+            $("#my_card").hide("slide", {direction:"left"}, 200, function(){
                 $("#my_card").html("");
                 if(current_offset + 1 == information.length){
                     current_offset = information.length;
@@ -27,7 +32,7 @@ $(document).ready(function(){
     $("#pageone").on("swiperight", function(){
         console.log("Swipe Right");
         if(current_offset != -1){
-            $("#my_card").hide("slide", {direction:"right"}, 300, function(){
+            $("#my_card").hide("slide", {direction:"right"}, 200, function(){
                 $("#my_card").html("");
                 if(current_offset == 0){
                     current_offset = -1;
@@ -41,5 +46,15 @@ $(document).ready(function(){
                 console.log(current_offset);
             });
         }
-    })
+    });
+    /*
+    // 向上滑动
+    $("#pageone").on("swipeup", function(){
+        console.log("Swipe Up");
+    });
+    
+    $("#pageone").on("swipedown", function(){
+        console.log("Swipe Up");
+    });
+    */
 })
