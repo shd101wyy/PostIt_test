@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title> Postit </title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="apple-mobile-web-app-capable" content="yes"> <!-- iOS full screen -->
+    <meta name="mobile-web-app-capable" content="yes"> <!-- android full screen -->
+    <link rel="stylesheet"  type="text/css" href="index.css" >
+    <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.4/jquery.mobile-1.4.4.min.css">
+    <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+    <script src="http://code.jquery.com/mobile/1.4.4/jquery.mobile-1.4.4.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.11.1/jquery-ui.js"></script>
+  </head>
+<body>
+  
+  <!-- 登录和注册页 -->
+  <div data-role="page" id="login_signup_page">
+    <div data-role="main" class="ui-content">
+      <br>
+      <br>
+      <h1 align="center">
+	PostIt !
+      </h1>
+      <h4 align="center">
+	share ur moment <br> 
+	with people nearby
+      </h4>
+      <br>
+      <a href="#signup_page" class="ui-btn ui-shadow" data-inline="true">Sign Up </a>
+      <br>
+      <a href="#login_page" class="ui-btn ui-shadow" data-inline="true"> Login </a>
+      <br>
+      <br>
+      <p align="center"> 测试版本 </p>
+      
+    </div>
+  </div>
+  
+  <!-- 注册页 -->
+  <div data-role="page" data-dialog="true" id="signup_page">
+    <div data-role="header">
+      <h1> Sign Up Page </h1>
+    </div>
+    <div data-role="main" class="ui-content">
+      <h3> sign up here </h3>
+      <!--<form id="signup_form" action="#"> -->
+	<label for="signup_username">User Name:</label>
+	<input type="text" name="fname" id="signup_username" data-clear-btn="true">
+	<label for="signup_password">Password :</label>
+	<input type="password" id="signup_password" data-clear-btn="true" name="signup_password">
+	<br>
+	<button id="user_signup" data-inline="true">Sign Up!</button> 
+      <!-- </form> -->
+    </div>
+  </div>
+  
+  <!-- 登录页 -->
+  <div data-role="page" data-dialog="true" id="login_page">
+    <div data-role="header">
+      <h1> Login Page </h1>
+    </div>
+    <div data-role="main" class="ui-content">
+      <h3> login here </h3>
+      <label for="login_username">User Name:</label>
+      <input type="text" name="fname" id="login_username" data-clear-btn="true">
+      <label for="login_password">Password :</label>
+      <input type="password" name="fname" id="login_password" data-clear-btn="true">
+      </br>
+      <button id="user_login"> Login </button>
+    </div>
+  </div>
+  
+  
+  
+  <div data-role="page" id="pageone">
+    <div data-role="header">
+      <h1>测试</h1>
+    </div>
+    <!-- <div id="post_refresh" data-role="main" class="ui-content">更新</div> -->
+    <div data-role="main" class="ui-content">
+      <div class="card" id="my_card">
+      </div>
+    </div>
+    
+    <div data-role="footer" >
+      <a href="#" class="ui-btn ui-corner-all ui-icon-heart ui-btn-icon-notext">Heart Icon</a>
+      <a href="#" class="ui-btn ui-corner-all ui-icon-comment ui-btn-icon-notext">Comment Icon</a>
+      <a href="#" class="ui-btn ui-corner-all ui-icon-star ui-btn-icon-notext">Star Icon</a>
+      <a href="#" class="ui-btn ui-corner-all ui-icon-edit ui-btn-icon-notext" id="post_button">Edit Icon</a>
+      <a href="#" class="ui-btn ui-corner-all ui-icon-refresh ui-btn-icon-notext" id="refresh_button">Refresh Icon</a>
+
+    </div>
+  </div> 
+</body>
+<script src="index.js"></script>
+</html>
