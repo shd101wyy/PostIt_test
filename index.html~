@@ -9,6 +9,8 @@
         <link rel="stylesheet"  type="text/css" href="index.css" ></href>
     </head>
     <body>
+        <div data-role="page" id="login_signup_page">
+        </div>
         <div data-role="page" id="pageone">
             <div data-role="header">
                 <h1>测试</h1>

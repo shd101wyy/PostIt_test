@@ -1,0 +1,37 @@
+  <?php		
+     $user_name = $_POST["user_name"];
+     $password = $_POST["password"]; // 用 SHA 加密
+      
+     // 连接到 mysql
+     $cons = mysqli_connect("localhost", "root", "", "shd101wyy");
+     // check connect error
+     if(!$cons){
+         echo mysql_error();
+	 exit;	
+     }
+     
+     // check user name existed.
+     // select database
+     $database_selected = mysqli_select_db($cons, "User");
+     if(!$database_selected){
+	echo "no database selected" . mysql_error();
+	exit;
+     }
+     
+     $check_user_existed_result = mysql_query(
+     "SELECT * FROM User WHERE user_name='$user_name' LIMIT 1")	;	
+     if($check_user_existed_result == false){
+         echo mysql_error();
+	 exit;
+     }
+     if(mysql_num_rows($check_user_existed_result) > 0){
+        echo "User already existed";
+	exit;
+     }    
+     
+     // save user_name and password to MySql
+     $insert_value = "INSERT INTO User VALUES ('$user_name', '$password')";
+     
+     mysqli_query($cons, $insert_value);
+     echo "signup_success";		
+     ?>

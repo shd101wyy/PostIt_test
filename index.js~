@@ -51,7 +51,7 @@ $(document).ready(function(){
     // 点击了 post 按钮
     $("#post_button").click(function(){
         var msg = prompt();
-        $.post("http://192.168.0.2/xampp/PostIt_test/app.php", // 这个以后得改
+        $.post("http://localhost/xampp/PostIt_test/app.php", // 这个以后得改
                {
                    name: "User Name",
                    msg: msg
@@ -64,33 +64,6 @@ $(document).ready(function(){
     $("#refresh_button").click(function(){
         alert("Refresh");
     })
-
-    // 用户注册
-    $("#user_signup").click(function(){
-	var user_name = $("#signup_username").val();
-	var user_password = document.getElementById("signup_password").value;
-	
-	// 存到服务器
-	// http://192.168.2.4/xampp/PostIt_test
-	$.ajax({url: "./signup.php", // 这个以后得改
-		async: false,
-		type: "POST",
-		data: {  user_name: user_name,
-			 password: user_password
-		      }
-	       })
-	    .done(function(data){
-                console.log("Signup !");
-		alert("Data: " +  data);
-            })
-	    .fail(function(data){
-		alert("ERROR");
-		alert(data);
-		console.log(data);
-	    });
-	
-    })
-    
     /*
     // 向上滑动
     $("#pageone").on("swipeup", function(){
