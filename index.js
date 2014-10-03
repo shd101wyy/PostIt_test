@@ -47,6 +47,23 @@ $(document).ready(function(){
             });
         }
     });
+    
+    // 点击了 post 按钮
+    $("#post_button").click(function(){
+        var msg = prompt();
+        $.post("http://localhost/xampp/PostIt_test/app.php", // 这个以后得改
+               {
+                   name: "User Name",
+                   msg: msg
+                }, function(data, status){
+                    alert("Data: " +  data + "  Status: " + status);
+                })
+    })
+    
+    // 点击了 refresh 按钮
+    $("#refresh_button").click(function(){
+        alert("Refresh");
+    })
     /*
     // 向上滑动
     $("#pageone").on("swipeup", function(){
